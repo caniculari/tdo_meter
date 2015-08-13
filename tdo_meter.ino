@@ -10,7 +10,7 @@ float Voltaje0, Voltaje1;
 
 //Ethernet values
 byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xE0 };
-IPAddress ip(172,21,12,59);
+IPAddress ip(172,21,12,7);
 IPAddress subnet(255,255,255,0);
 IPAddress gateway(172,21,12,254);
 EthernetServer server(80);
