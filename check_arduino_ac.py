@@ -18,10 +18,10 @@ try:
 except urllib.error.URLError as e:
     if hasattr(e, 'reason'):
         print ('Failed to reach an arduino', e.reason)
-        sys.exit(2)
+        sys.exit(0)
     elif hasattr(e, 'code'):
         print ('The arduino couldn\' fulfill the request', e.code)
-        sys.exit(2)
+        sys.exit(0)
 except timeout:
     print ('Response timeout')
     sys.exit(0)
