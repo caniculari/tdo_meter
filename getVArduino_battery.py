@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-#:      Title   :   getVArduino_solar.py
-#:      Date    :   28 nov 2014
+#:      Title   :   getVArduino_battery.py
+#:      Date    :   16 nov 2014
 #:      Author  :   Luis Enrique Pineda
 #:      Version :   0.3
-#:      Descrip :   Get values from arduino for a cacti graph (solar cells)
-#:                  file path /var/lib/cacti/scripts
+#:      Descrip :   Get values from arduino for a cacti graph (Batteries)
+
 from socket import timeout
 from urllib.request import Request, urlopen
 import urllib.error
@@ -28,9 +28,11 @@ except timeout:
 else:
     html = response.read().decode('utf-8')
 
-    volts_batt = html[40:html.find('solar')-7]
-    volts_solar = html[html.find('solar: ')+7:html.find('bateria')]
+    #olts_batt = html[40:html.find('solar')-9]
+    volts_batt = html[html.find('bateria: ') + 9:html.find('mode')-4]
+    volts_solar = html[html.find('lar') + 5:html.find('-')-1]
 
-    returnText = (volts_solar.rstrip())
+    #returnText = ("battery:%s:solar:%s" %(volts_batt.rstrip(),volts_solar.rstrip()))
+    returnText = (volts_batt.rstrip())
     print(returnText)
 
