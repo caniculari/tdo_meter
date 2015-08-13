@@ -24,14 +24,14 @@ except urllib.error.URLError as e:
         sys.exit(2)
 except timeout:
     print ('Response timeout')
-    sys.exit(3)
+    sys.exit(0)
 
 else:
     html = response.read().decode('utf-8')
     volts_batt = html[html.find('bateria: ') + 9:html.find('mode')-5]
     mode = html[html.find('mode')-3]
     if mode == "A":
-        print("Sistema en batería " + volts_batt + " V")
+        print("Sistema en batería: " + volts_batt + " V")
         sys.exit(0)
     elif mode == "r":
         print("Sistema en Corriente CFE")

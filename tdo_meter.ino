@@ -90,9 +90,16 @@ void clientConnection () {
            client.println();
            client.println("<!DOCTYPE HTML>");
            client.println("<html>");
-           client.println(Voltaje0, DEC);
-           client.println(Voltaje1);
-           client.println(Sensor_A2);
+           client.print("solar: ");
+           client.println(Voltaje1, DEC);
+           client.print("bateria: ");
+           client.println(Voltaje0);
+           if (Sensor_A2 > 2) {
+             client.print("AC mode");
+           }
+           else{
+             client.print("Battery mode");
+           }
            client.println();
            client.println("<html>");
            break;

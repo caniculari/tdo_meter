@@ -29,7 +29,7 @@ else:
     html = response.read().decode('utf-8')
 
     #olts_batt = html[40:html.find('solar')-9]
-    volts_batt = html[html.find('bateria: ') + 9:html.find('mode')-4]
+    volts_batt = html[html.find('bateria: ') + 9:html.find('bateria: ')+13]
     volts_solar = html[html.find('lar') + 5:html.find('-')-1]
 
     #returnText = ("battery:%s:solar:%s" %(volts_batt.rstrip(),volts_solar.rstrip()))

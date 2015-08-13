@@ -28,8 +28,7 @@ except timeout:
 else:
     html = response.read().decode('utf-8')
 
-    volts_batt = html[40:html.find('solar')-7]
-    volts_solar = html[html.find('solar: ')+7:html.find('bateria')]
+    volts_solar = html[html.find('solar: ')+7:html.find('solar: ')+11]
 
     returnText = (volts_solar.rstrip())
     print(returnText)
