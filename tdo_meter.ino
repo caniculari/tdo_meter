@@ -45,10 +45,10 @@ void updateDisplay() {  // Write voltages and status in LCD Display
   
   lcd.setCursor(2,1);         //sets the cursor at row 1 column 2
   if (Sensor_A2 > 2) {
-    lcd.print("Battery Mode");       
+    lcd.print("AC Mode");       
   }
   else {
-      lcd.print("AC Mode");
+      lcd.print("Battery Mode");
   }
 }
 
